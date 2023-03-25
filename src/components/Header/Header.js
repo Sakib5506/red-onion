@@ -1,14 +1,25 @@
-import { AppBar, Box, Button, Menu, MenuItem, Toolbar } from '@mui/material';
-import React, { useState } from 'react';
+import { AppBar, Badge, Box, Button, Menu, MenuItem, Toolbar } from '@mui/material';
+import React, { useContext, useState } from 'react';
 import logo from '../../images/logo2.png';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import MenuIcon from '@mui/icons-material/Menu';
 import './Header.css'
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
+import { CartContext } from '../../App';
 
 
 
 const Header = () => {
+    const { cartState, cartDispatch } = useContext(CartContext)
+    // console.log(state);
+    let totalItem = 0;
+    for (let index = 0; index < cartState.length; index++) {
+        const element = cartState[index];
+        totalItem = totalItem + cartState[index].qty;
+    }
+    // console.log(totalItem);
+
     const [open, setOpen] = useState(false);
 
     const LoginButton = styled(Button)({
@@ -28,10 +39,15 @@ const Header = () => {
             <AppBar position='static' color='transparent'>
                 <Toolbar>
                     <Box sx={{ flexGrow: 1 }}>
-                        <img style={{ height: '40px', marginLeft: '30px' }} src={logo} alt="" />
+                        <Link to={'/'}>
+                            <img style={{ height: '40px', marginLeft: '30px' }} src={logo} alt="" />
+                        </Link>
                     </Box>
                     <Box sx={{ mr: 2 }}>
-                        <ShoppingCartOutlinedIcon sx={{ mr: 2 }} />
+                        <Badge badgeContent={totalItem} color={'error'} sx={{ m: 2 }} >
+                            <ShoppingCartOutlinedIcon />
+                        </Badge>
+
                         <LoginButton sx={{ display: { xs: 'none', md: 'inline-block' } }} variant='text'
                         >
                             Login

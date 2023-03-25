@@ -30,8 +30,7 @@ const Product = () => {
     })
 
     const handleStyle = event => {
-
-        console.log(event);
+        // console.log(event);
         event.target.style.borderBottom = '1px solid #CA1533';
         event.target.style.color = '#CA1533';
         setSelectedType(event.target.innerText.toLowerCase());
@@ -82,9 +81,10 @@ const Product = () => {
             <Grid container>
                 {
                     allFood.filter((item) => item.category === selectedType).map((pd, idx) =>
-                        <SIngleProduct pd={pd}
+                        <SIngleProduct pd={{ pd, idx }}
                             idx={idx}
                             key={pd.index}
+                            productId={pd.id}
                         >
 
                         </SIngleProduct>)

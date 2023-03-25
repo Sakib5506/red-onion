@@ -1,6 +1,7 @@
 import { Box, Grid, Toolbar, Typography } from '@mui/material'
 import { Stack } from '@mui/system'
 import React from 'react'
+import { Link } from 'react-router-dom'
 import footerLogo from '../../images/logo.png'
 
 const Footer = () => {
@@ -9,17 +10,20 @@ const Footer = () => {
 
             <Grid >
                 <Grid container
-                    direction="row"
-                    justifyContent="space-between"
-                    alignItems="center"
+
                 >
-                    <Grid >
-                        <Box m={3}>
-                            <img style={{ width: '25%' }} src={footerLogo} alt="" />
+                    <Grid item xs={12} sm={6} >
+                        <Box p={2}>
+                            <Link to={'/'}>
+                                <img style={{ width: '30%' }} src={footerLogo} alt="" />
+                            </Link>
                         </Box>
                     </Grid>
-                    <Grid item>
-                        <Grid container spacing={5}>
+                    <Grid item xs={12} sm={6}>
+                        <Grid container
+                            direction="row"
+                            justifyContent={{ xs: 'center', sm: 'flex-end' }}
+                            alignItems="center" spacing={5}>
                             <Grid item p={5}>
                                 <Typography color={'white'}>
                                     About Online food
