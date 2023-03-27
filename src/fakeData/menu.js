@@ -2,7 +2,7 @@ var fakeDATA = [
     {
         "id": "6410bc7770f094fa84c1ae75",
         "index": 0,
-        "name": "Pepperoni Pizza",
+        "name": "Eggs Benedict",
         "price": 818,
         "category": "breakfast",
         "about": "Excepteur ad laborum tempor in.",

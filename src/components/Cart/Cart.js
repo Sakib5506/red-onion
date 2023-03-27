@@ -4,9 +4,12 @@ import { Box } from '@mui/system'
 import React, { useContext, useState } from 'react'
 import { CartContext } from '../../App';
 import CartDetails from '../CartDetails/CartDetails';
+import { Link, useLocation } from 'react-router-dom';
 
 const Cart = (props) => {
-    console.log(props);
+    const location = useLocation();
+    // console.log(location);
+    // console.log(props);
     const { cartState, cartDispatch } = useContext(CartContext);
     // console.log(state);
     let deliveryFee = 0;
@@ -55,9 +58,22 @@ const Cart = (props) => {
                         <Typography sx={{ fontWeight: '700' }}>
                             Total : Tk {totalPrice}
                         </Typography>
-                        <StyledButton variant='contained'>
-                            Checkout Your Food
-                        </StyledButton>
+                        {
+                            location.pathname === `/review` ? (
+                                <Link to={'/placeorder'} style={{ textDecoration: 'none' }}>
+                                    <StyledButton onClick={() => cartDispatch({ type: 'RESET' })} variant='contained'>
+                                        Place Order
+                                    </StyledButton>
+                                </Link>
+                            ) : (
+                                <Link to={'/review'} style={{ textDecoration: 'none' }}>
+                                    <StyledButton variant='contained'>
+                                        Checkout Your Food
+                                    </StyledButton>
+                                </Link>
+                            )
+                        }
+
                     </Box>
                 </Paper>
             }

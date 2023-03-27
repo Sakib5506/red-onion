@@ -7,7 +7,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 
 const CartDetails = (props) => {
-    console.log(props);
+    // console.log(props);
 
     const { cartState, cartDispatch } = useContext(CartContext);
     const { name, qty, category, id, idx } = props.item;

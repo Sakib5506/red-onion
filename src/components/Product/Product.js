@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { Button, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import fakeData from '../../fakeData/menu'
 import SIngleProduct from '../SingleProduct/SIngleProduct';
 import './Product.css'
@@ -91,9 +92,11 @@ const Product = () => {
                 }
             </Grid>
             <Box align='center' m={3}>
-                <StyledButton variant='contained'>
-                    Checkout Your Food
-                </StyledButton>
+                <Link to={'/review'} params={{ myObj: 'true' }} style={{ textDecoration: 'none' }}>
+                    <StyledButton variant='contained'>
+                        Checkout Your Food
+                    </StyledButton>
+                </Link>
             </Box>
 
         </Box >

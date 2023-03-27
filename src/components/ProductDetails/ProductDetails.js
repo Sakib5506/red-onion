@@ -109,14 +109,15 @@ const ProductDetails = () => {
 
 
                 <Grid sx={{ marginLeft: { xs: '1rem', sm: '2rem', lg: '6rem' } }} mb={5}>
-                    <Stack direction={'row'} spacing={2} alignItems={'center'} >
-                        <img className='suggestion-img' src={require(`../../images/${foodItem.category}/${foodItem.category}${randomNumber1}.png`)} alt='Product_Image' />
-                        <img className='suggestion-img' src={require(`../../images/${foodItem.category}/${foodItem.category}${randomNumber2}.png`)} alt='Product_Image' />
-                        <Link to={'/'}>
-                            <ArrowForwardIosIcon color='error'></ArrowForwardIosIcon>
-                        </Link>
+                    <Link to={'/'}>
+                        <Stack direction={'row'} spacing={2} alignItems={'center'} >
+                            <img className='suggestion-img' src={require(`../../images/${foodItem.category}/${foodItem.category}${randomNumber1}.png`)} alt='Product_Image' />
+                            <img className='suggestion-img' src={require(`../../images/${foodItem.category}/${foodItem.category}${randomNumber2}.png`)} alt='Product_Image' />
 
-                    </Stack>
+                            <ArrowForwardIosIcon color='error'></ArrowForwardIosIcon>
+
+                        </Stack>
+                    </Link>
                 </Grid>
 
             </Grid >
